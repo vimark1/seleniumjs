@@ -1,0 +1,62 @@
+{
+  "tempTitle": "Untitled",
+  "formatLocalMap": {
+    "undefined": {}
+  },
+  "commands": [
+    {
+      "command": "open",
+      "target": "/",
+      "value": "",
+      "lastURL": "http://www.example.com/"
+    },
+    {
+      "command": "assertTitle",
+      "target": "Example",
+      "value": "",
+      "lastURL": "http://www.example.com/"
+    },
+    {
+      "command": "assertText",
+      "target": "p.header",
+      "value": "You, by usModern learningDigital learning toolsData-driven insights",
+      "lastURL": "http://www.example.com/"
+    },
+    {
+      "command": "click",
+      "target": "link=How",
+      "targetCandidates": [
+        [
+          "link=How",
+          "link"
+        ],
+        [
+          "//a[contains(text(),'How')]",
+          "xpath:link"
+        ],
+        [
+          "//body[@id='page-top']/nav/div/div[2]/ul/li[3]/a",
+          "xpath:idRelative"
+        ],
+        [
+          "//a[contains(@href, '#how')]",
+          "xpath:href"
+        ],
+        [
+          "//li[3]/a",
+          "xpath:position"
+        ]
+      ],
+      "value": "",
+      "lastURL": "http://www.example.com/"
+    }
+  ],
+  "baseURL": "http://www.example.com/",
+  "debugContext": {},
+  "observers": [
+    {},
+    {}
+  ],
+  "edited": false,
+  "modified": true
+}

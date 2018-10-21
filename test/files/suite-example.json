@@ -1,0 +1,149 @@
+{
+  "filename": "asdasdasdasd333tests.js",
+  "tests": [
+    {
+      "title": "should log me in",
+      "baseURL": "http://app.test.example.com/",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/login",
+          "value": "",
+          "skip": 602,
+          "index": 602
+        },
+        {
+          "command": "type",
+          "target": "name=username",
+          "value": "builder01@example.com",
+          "skip": 0,
+          "index": 656
+        },
+        {
+          "command": "type",
+          "target": "name=password",
+          "value": "builder01",
+          "skip": 0,
+          "index": 738
+        },
+        {
+          "command": "clickAndWait",
+          "target": "//button[@type='submit']",
+          "value": "",
+          "skip": 0,
+          "index": 808
+        },
+        {
+          "command": "assertText",
+          "target": "css=h1",
+          "value": "My courses",
+          "skip": 0,
+          "index": 888
+        }
+      ]
+    },
+    {
+      "title": "take me to user profile",
+      "baseURL": "http://app.test.example.com/",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/user/profile",
+          "value": "",
+          "skip": 616,
+          "index": 616
+        },
+        {
+          "command": "type",
+          "target": "name=username",
+          "value": "builder01@example.com",
+          "skip": 0,
+          "index": 677
+        },
+        {
+          "command": "type",
+          "target": "name=password",
+          "value": "builder01",
+          "skip": 0,
+          "index": 759
+        },
+        {
+          "command": "clickAndWait",
+          "target": "//button[@type='submit']",
+          "value": "",
+          "skip": 0,
+          "index": 829
+        },
+        {
+          "command": "click",
+          "target": "css=h1",
+          "value": "",
+          "skip": 0,
+          "index": 909
+        },
+        {
+          "command": "assertText",
+          "target": "css=h1",
+          "value": "My account",
+          "skip": 0,
+          "index": 964
+        }
+      ]
+    },
+    {
+      "title": "logout take me to logout message",
+      "baseURL": "http://app.test.example.com/",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/login",
+          "value": "",
+          "skip": 634,
+          "index": 634
+        },
+        {
+          "command": "type",
+          "target": "name=username",
+          "value": "builder01@example.com",
+          "skip": 0,
+          "index": 688
+        },
+        {
+          "command": "type",
+          "target": "name=password",
+          "value": "builder01",
+          "skip": 0,
+          "index": 770
+        },
+        {
+          "command": "clickAndWait",
+          "target": "//button[@type='submit']",
+          "value": "",
+          "skip": 0,
+          "index": 840
+        },
+        {
+          "command": "click",
+          "target": "css=img.img-circle.img-responsive",
+          "value": "",
+          "skip": 0,
+          "index": 920
+        },
+        {
+          "command": "clickAndWait",
+          "target": "//div[@id='avatar-popover']/div[2]/div/div/a[3]/span",
+          "value": "",
+          "skip": 0,
+          "index": 1002
+        },
+        {
+          "command": "assertText",
+          "target": "css=div.panel-heading",
+          "value": "You have logged out",
+          "skip": 0,
+          "index": 1110
+        }
+      ]
+    }
+  ]
+}

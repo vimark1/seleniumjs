@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "target": "es2015",
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "outDir": "./build",
+    "typeRoots": ["./node_modules/@types"]
+  },
+
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ],
+
+  "exclude": [
+    "node_modules"
+  ],
+  
+  "compileOnSave": false
+}
