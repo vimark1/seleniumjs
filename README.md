@@ -2,7 +2,7 @@
 
 Transforms Selenium IDE test output into javascript tests and more.
 
-<!-- ![nodei.co](https://nodei.co/npm/seleniumjs.png?downloads=true&downloadRank=true&stars=true) -->
+[![Build Status](https://travis-ci.com/vimark1/seleniumjs.svg?branch=master)](https://travis-ci.com/vimark1/seleniumjs)
 
 ## Features
 
