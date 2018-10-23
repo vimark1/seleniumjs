@@ -2,7 +2,7 @@
 
 Transforms Selenium IDE test output into javascript tests and more.
 
-[![Build Status](https://travis-ci.com/vimark1/seleniumjs.svg?branch=master)](https://travis-ci.com/vimark1/seleniumjs)
+[![Build Status](https://travis-ci.com/vimark1/seleniumjs.svg?branch=master)](https://travis-ci.com/vimark1/seleniumjs) [![Greenkeeper badge](https://badges.greenkeeper.io/vimark1/seleniumjs.svg)](https://greenkeeper.io/)
 
 ## Features
 
