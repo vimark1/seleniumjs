@@ -1,7 +1,5 @@
 # seleniumjs
 
-**Alert: Project under active development!  This is an early release. So expect changes and new features in the near future.**
-
 Transforms Selenium IDE test output into javascript tests and more.
 
 <!-- ![nodei.co](https://nodei.co/npm/seleniumjs.png?downloads=true&downloadRank=true&stars=true) -->
