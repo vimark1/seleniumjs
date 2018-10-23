@@ -5,12 +5,16 @@ import HtmlParser from './HtmlParser';
 import { TestCaseParserOutput } from '../shared/Selenium';
 
 const htmlParserInstance = new HtmlParser();
+interface FrontMatterAttributes {
+  baseUrl: string;
+  title: string;
+}
 
 export default class MarkdownParser {
 
   public testCase(txt: string): TestCaseParserOutput {
 
-    const { baseUrl, title } = fm(txt).attributes;
+    const { baseUrl, title } = fm<FrontMatterAttributes>(txt).attributes;
 
     const html = marked(txt, {
       gfm : true
