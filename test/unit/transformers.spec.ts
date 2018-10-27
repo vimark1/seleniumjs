@@ -1,4 +1,3 @@
-import { test } from 'ava';
 import { readFileSync } from 'fs';
 import * as escodegen from 'escodegen';
 import * as esprima from 'esprima';
@@ -32,61 +31,61 @@ const htmlTestCaseAST = steps2ast(htmlTestCaseObject.steps);
 
 const jsonTestCaseZombieOutput = zombieTransformer(jsonTestCaseObject);
 
-test('should get a code and browser setup code', (t) => {
-  t.truthy(code);
-  t.truthy(code.includes('assertTitle | Example |'));
+test('should get a code and browser setup code', () => {
+  expect(code).toBeTruthy();
+  expect(code.includes('assertTitle | Example |')).toBeTruthy();
   // should resemble a valid front matter
-  t.is(/^baseUrl/gm.test(code), true);
-  t.truthy(jsonTestCaseMarkdownOutput.title.includes('Untitled'));
+  expect(/^baseUrl/gm.test(code)).toBe(true);
+  expect(jsonTestCaseMarkdownOutput.title.includes('Untitled')).toBeTruthy();
 });
 
-test('should be a valid javascript AST tree', (t) => {
+test('should be a valid javascript AST tree', () => {
   const codeFromAst = escodegen.generate(htmlTestCaseAST);
-  t.is(codeFromAst.split('\n').length, 15);
+  expect(codeFromAst.split('\n').length).toBe(15);
 });
 
-test('zombie util - should get a code and browser setup code', ( t ) => {
-  t.truthy(jsonTestCaseZombieOutput.testCode);
-  t.truthy(jsonTestCaseZombieOutput.browserSetupCode);
-  t.truthy(jsonTestCaseZombieOutput.browserSetupCode.includes('baseUrl'));
+test('zombie util - should get a code and browser setup code', () => {
+  expect(jsonTestCaseZombieOutput.testCode).toBeTruthy();
+  expect(jsonTestCaseZombieOutput.browserSetupCode).toBeTruthy();
+  expect(jsonTestCaseZombieOutput.browserSetupCode.includes('baseUrl')).toBeTruthy();
 });
 
-test('should find a browser action of', ( t ) => {
+test('should find a browser action of', () => {
   const node = {
     type : 'CallExpression',
     callee : { name : 'browser.click' },
     arguments : [{ value : 'link=something' }]
   };
-  t.truthy(util.isBrowserAction(node));
-  t.truthy(util.isBrowserActionOf(node, 'browser.click'));
-  t.falsy(util.isBrowserActionOf(node, 'browser.clickAndWait'));
-  t.falsy(util.isBrowserActionOf(node, '.click'));
-  t.falsy(util.isBrowserActionOf(node, 'click'));
+  expect(util.isBrowserAction(node)).toBeTruthy();
+  expect(util.isBrowserActionOf(node, 'browser.click')).toBeTruthy();
+  expect(util.isBrowserActionOf(node, 'browser.clickAndWait')).toBeFalsy();
+  expect(util.isBrowserActionOf(node, '.click')).toBeFalsy();
+  expect(util.isBrowserActionOf(node, 'click')).toBeFalsy();
 });
 
-test('xpath functions return expected results', ( t ) => {
-  t.is(xpath('id=something'), '#something');
-  t.is(xpath('identifier=something'), '#something,[name=something]');
-  t.is(xpath('name=something'), '[name=something]');
-  t.is(xpath('link=something'), 'something');
-  t.is(xpath('css=something'), 'something');
+test('xpath functions return expected results', () => {
+  expect(xpath('id=something')).toBe('#something');
+  expect(xpath('identifier=something')).toBe('#something,[name=something]');
+  expect(xpath('name=something')).toBe('[name=something]');
+  expect(xpath('link=something')).toBe('something');
+  expect(xpath('css=something')).toBe('something');
 });
 
 function esprima_parse(code) {
   return esprima.parse(code).body[0].expression;
 }
 
-test('browserAction - should convert selenium to zombie commands', t => {
+test('browserAction - should convert selenium to zombie commands', () => {
   const node = {
     type : 'CallExpression',
     callee : { name : 'browser.clickAndWait' },
     arguments : [{ value : 'link=something' }]
   };
   zombieFunctions.browserAction.mapping(node);
-  t.is(node.callee.name, 'browser.click');
+  expect(node.callee.name).toBe('browser.click');
 });
 
-test('assertText - converts assertText into a zombie+jasmine expect', t => {
+test('assertText - converts assertText into a zombie+jasmine expect', () => {
   const node = {
     type : 'CallExpression',
     callee : { type: '', name : 'browser.assertText' },
@@ -97,36 +96,36 @@ test('assertText - converts assertText into a zombie+jasmine expect', t => {
   };
   zombieFunctions.assertText.transpile(node);
   const copy = JSON.stringify(node);
-  t.is(node.callee.type, 'MemberExpression');
-  t.truthy(copy.includes('.header'));
-  t.truthy(copy.includes('Welcome!'));
-  t.truthy(copy.includes('expect'));
-  t.truthy(copy.includes('toContain'));
+  expect(node.callee.type).toBe('MemberExpression');
+  expect(copy.includes('.header')).toBeTruthy();
+  expect(copy.includes('Welcome!')).toBeTruthy();
+  expect(copy.includes('expect')).toBeTruthy();
+  expect(copy.includes('toContain')).toBeTruthy();
 });
 
-test('should translate the browser.echo to a console.log', t => {
+test('should translate the browser.echo to a console.log', () => {
   const node = esprima_parse('browser.echo("${something}")');
   const node2 = esprima_parse('browser.echo("Hello world!")');
   const node3 = esprima_parse('browser.echo(123123)');
   zombieFunctions.echo.transpile(node);
   zombieFunctions.echo.transpile(node2);
   zombieFunctions.echo.transpile(node3);
-  t.is(escodegen.generate(node), 'console.log(something)');
-  t.truthy(escodegen.generate(node2).includes('Hello world!'));
-  t.truthy(escodegen.generate(node2).includes('console.log'));
-  t.is(escodegen.generate(node3), 'console.log(123123)');
+  expect(escodegen.generate(node)).toBe('console.log(something)');
+  expect(escodegen.generate(node2).includes('Hello world!')).toBeTruthy();
+  expect(escodegen.generate(node2).includes('console.log')).toBeTruthy();
+  expect(escodegen.generate(node3)).toBe('console.log(123123)');
 });
 
-test('storeText - should translate the browser.store to a variable declaration', t => {
+test('storeText - should translate the browser.store to a variable declaration', () => {
   const node = esprima_parse('browser.store("id=myBanner", "myVar")');
   zombieFunctions.storeText.transpile(node);
-  t.truthy(escodegen.generate(node).includes('var myVar ='));
-  t.truthy(escodegen.generate(node).includes('#myBanner'));
+  expect(escodegen.generate(node).includes('var myVar =')).toBeTruthy();
+  expect(escodegen.generate(node).includes('#myBanner')).toBeTruthy();
 });
 
-test('verifyValue - should translate the browser.verifyValue to a variable declaration', t => {
+test('verifyValue - should translate the browser.verifyValue to a variable declaration', () => {
   const node = esprima_parse('browser.verifyValue("id=myInput", "my search")');
   zombieFunctions.verifyValue.transpile(node);
-  t.truthy(escodegen.generate(node).includes('browser.query(\'#myInput\').value'));
-  t.truthy(escodegen.generate(node).includes('my search'));
+  expect(escodegen.generate(node).includes('browser.query(\'#myInput\').value')).toBeTruthy();
+  expect(escodegen.generate(node).includes('my search')).toBeTruthy();
 });
