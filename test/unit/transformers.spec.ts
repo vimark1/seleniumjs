@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import * as escodegen from 'escodegen';
 import * as esprima from 'esprima';
-import * as requireDir from 'require-dir';
+import * as requireDirectory from 'require-directory';
 
 import HtmlParser from '../../src/parsers/HtmlParser';
 import JsonParser from '../../src/parsers/JsonParser';
@@ -14,7 +14,7 @@ import xpath from '../../src/transformers/zombie/xpath';
 import markdownTransform from '../../src/transformers/markdown';
 import zombieTransformer from '../../src/transformers/zombie';
 
-const zombieFunctions = requireDir('../../src/transformers/zombie/functions/');
+const zombieFunctions = requireDirectory(module, '../../src/transformers/zombie/functions/');
 
 const html = readFileSync(__dirname + '/../files/example.html').toString();
 const example = require('../files/example.json');
