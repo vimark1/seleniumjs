@@ -75,7 +75,7 @@
     "codecov": "^3.1.0",
     "cookie-parser": "^1.4.3",
     "cz-conventional-changelog": "^2.1.0",
-    "expect": "^23.6.0",
+    "expect": "^24.4.0",
     "express": "^4.16.4",
     "fs": "0.0.2",
     "istanbul": "^0.4.3",
