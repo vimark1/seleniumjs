@@ -39,7 +39,7 @@
     "front-matter": "^3.0.0",
     "js-prettify": "^1.4.0",
     "lodash.clonedeep": "^4.3.2",
-    "marked": "^0.6.0"
+    "marked": "^0.7.0"
   },
   "files": [
     "build/",
