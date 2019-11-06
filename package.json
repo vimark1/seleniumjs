@@ -63,7 +63,7 @@
     "@types/ejs": "^2.6.0",
     "@types/escodegen": "0.0.6",
     "@types/estraverse": "0.0.6",
-    "@types/expect": "^1.20.3",
+    "@types/expect": "^24.3.0",
     "@types/lodash": "^4.14.117",
     "@types/marked": "0.5.0",
     "@types/mocha": "^5.2.5",
