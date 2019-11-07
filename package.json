@@ -87,7 +87,7 @@
     "path": "^0.12.7",
     "require-directory": "^2.1.1",
     "rimraf": "^2.6.2",
-    "standard-version": "^4.4.0",
+    "standard-version": "^7.0.1",
     "ts-node": "^8.0.3",
     "tslint": "^5.11.0",
     "typescript": "^3.1.3",
