@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.9",
-    "@types/ejs": "^2.6.0",
+    "@types/ejs": "^3.0.0",
     "@types/escodegen": "0.0.6",
     "@types/estraverse": "0.0.6",
     "@types/expect": "^1.20.3",
