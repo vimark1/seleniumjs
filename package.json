@@ -86,7 +86,7 @@
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "require-directory": "^2.1.1",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.1",
     "standard-version": "^4.4.0",
     "ts-node": "^8.0.3",
     "tslint": "^5.11.0",
