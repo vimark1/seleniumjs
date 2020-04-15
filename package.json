@@ -35,7 +35,7 @@
     "escodegen": "^1.11.0",
     "esprima": "^4.0.1",
     "estemplate": "^0.5.1",
-    "estraverse": "^4.2.0",
+    "estraverse": "^5.1.0",
     "front-matter": "^3.0.0",
     "js-prettify": "^1.4.0",
     "lodash.clonedeep": "^4.3.2",
