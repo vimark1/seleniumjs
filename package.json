@@ -31,7 +31,7 @@
   "license": "MIT",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "ejs": "^2.6.1",
+    "ejs": "^3.1.2",
     "escodegen": "^1.11.0",
     "esprima": "^4.0.1",
     "estemplate": "^0.5.1",
