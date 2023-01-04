@@ -79,7 +79,7 @@
     "express": "^4.16.4",
     "fs": "0.0.2",
     "istanbul": "^0.4.3",
-    "jest": "^23.6.0",
+    "jest": "^29.3.1",
     "mocha": "^6.0.0",
     "multiparty": "^4.2.1",
     "node-mkdirp": "0.0.1",
